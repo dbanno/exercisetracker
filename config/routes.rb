@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :exercises
+
+  resources :exeercises
+
   resources :weight_logs
 
   # The priority is based upon order of creation: first created -> highest priority.
