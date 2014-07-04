@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Exercise:</strong>
+  <%= @weight_log.exercise %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @weight_log.weight %>
+</p>
+
+<p>
+  <strong>Reps:</strong>
+  <%= @weight_log.reps %>
+</p>
+
+<%= link_to 'Edit', edit_weight_log_path(@weight_log) %> |
+<%= link_to 'Back', weight_logs_path %>

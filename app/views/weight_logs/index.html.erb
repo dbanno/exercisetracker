@@ -1,0 +1,29 @@
+<h1>Listing weight_logs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Exercise</th>
+      <th>Weight</th>
+      <th>Reps</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @weight_logs.each do |weight_log| %>
+      <tr>
+        <td><%= weight_log.exercise %></td>
+        <td><%= weight_log.weight %></td>
+        <td><%= weight_log.reps %></td>
+        <td><%= link_to 'Show', weight_log %></td>
+        <td><%= link_to 'Edit', edit_weight_log_path(weight_log) %></td>
+        <td><%= link_to 'Destroy', weight_log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Weight log', new_weight_log_path %>
