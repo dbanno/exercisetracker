@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  
-  get "static_pages/home"
-  get "static_pages/help"
-  get "static_pages/login"
-  
+  root 'static_pages#home'
+  match '/help',				to:	'static_pages#help',		via: 		'get'
+  match '/login',				to:	'static_pages#login',		via: 		'get'
+
   resources :exercises
   resources :weight_logs
   
