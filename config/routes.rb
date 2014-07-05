@@ -3,8 +3,7 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
   match '/help',				to:	'static_pages#help',		via: 		'get'
-  match '/login',				to:	'static_pages#login',		via: 		'get'
-
+  match '/signup',			to:	'users#new',					via:		'get'
   resources :exercises
   resources :weight_logs
   
