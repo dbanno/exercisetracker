@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :exercise %><br>
-    <%= f.text_field :exercise %>
+    <%= f.label :exercise_id %><br>
+    <%= f.text_field :exercise_id %>
   </div>
   <div class="field">
     <%= f.label :weight %><br>
@@ -22,6 +22,10 @@
   <div class="field">
     <%= f.label :reps %><br>
     <%= f.number_field :reps %>
+  </div>
+    <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

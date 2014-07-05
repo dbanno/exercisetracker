@@ -2,7 +2,7 @@
 
 <p>
   <strong>Exercise:</strong>
-  <%= @weight_log.exercise %>
+  <%= @weight_log.exercise_id %>
 </p>
 
 <p>
@@ -13,6 +13,10 @@
 <p>
   <strong>Reps:</strong>
   <%= @weight_log.reps %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%= @weight_log.user_id %>
 </p>
 
 <%= link_to 'Edit', edit_weight_log_path(@weight_log) %> |

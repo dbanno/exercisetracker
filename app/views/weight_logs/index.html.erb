@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+	  <th>User</th>
       <th>Exercise</th>
       <th>Weight</th>
       <th>Reps</th>
@@ -13,7 +14,8 @@
   <tbody>
     <% @weight_logs.each do |weight_log| %>
       <tr>
-        <td><%= weight_log.exercise %></td>
+	    <td><%= weight_log.user_id %></td>
+        <td><%= weight_log.exercise_id %></td>
         <td><%= weight_log.weight %></td>
         <td><%= weight_log.reps %></td>
         <td><%= link_to 'Show', weight_log %></td>
