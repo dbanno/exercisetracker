@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140706030014) do
+ActiveRecord::Schema.define(version: 20140706032159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,5 +43,7 @@ ActiveRecord::Schema.define(version: 20140706030014) do
     t.datetime "updated_at"
     t.integer  "user_id"
   end
+
+  add_index "weight_logs", ["user_id", "created_at"], name: "index_weight_logs_on_user_id_and_created_at", using: :btree
 
 end

@@ -1,4 +1,4 @@
 json.array!(@weight_logs) do |weight_log|
-  json.extract! weight_log, :id, :exercise_id, :weight, :reps, :user_id
+  json.extract! weight_log, :id, :weight, :reps
   json.url weight_log_url(weight_log, format: :json)
 end
