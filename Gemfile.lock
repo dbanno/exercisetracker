@@ -28,6 +28,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    bcrypt-ruby (3.1.2-x86-mingw32)
     bootstrap-sass (3.2.0.0)
       sass (~> 3.2)
     builder (3.2.2)
@@ -55,6 +56,7 @@ GEM
     mime-types (1.25.1)
     minitest (5.3.5)
     multi_json (1.10.1)
+    pg (0.17.1)
     pg (0.17.1-x86-mingw32)
     polyglot (0.3.5)
     rack (1.5.2)
@@ -111,6 +113,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  bcrypt-ruby (= 3.1.2)
   bootstrap-sass
   jbuilder (~> 2.0)
   jquery-rails
