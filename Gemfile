@@ -44,3 +44,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'bootstrap-sass'
 gem 'sprockets'
 gem 'bcrypt-ruby', '3.1.2'
+gem 'rails_12factor'
