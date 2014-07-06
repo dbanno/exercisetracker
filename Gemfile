@@ -45,3 +45,4 @@ gem 'bootstrap-sass'
 gem 'sprockets'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'rails_12factor'
+gem 'will_paginate', "~> 3.0.4"
