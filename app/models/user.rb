@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	has_many :exercises
 	has_many :weight_logs, dependent: :destroy
 	
 	before_save { self.email = email.downcase }
