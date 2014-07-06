@@ -28,9 +28,12 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    bcrypt-ruby (3.1.2)
     bcrypt-ruby (3.1.2-x86-mingw32)
     bootstrap-sass (3.2.0.0)
       sass (~> 3.2)
+    bootstrap-will_paginate (0.0.9)
+      will_paginate
     builder (3.2.2)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -56,6 +59,7 @@ GEM
     mime-types (1.25.1)
     minitest (5.3.5)
     multi_json (1.10.1)
+    pg (0.17.1)
     pg (0.17.1-x86-mingw32)
     polyglot (0.3.5)
     rack (1.5.2)
@@ -120,11 +124,12 @@ PLATFORMS
 DEPENDENCIES
   bcrypt-ruby (= 3.1.2)
   bootstrap-sass
+  bootstrap-will_paginate (= 0.0.9)
   jbuilder (~> 2.0)
   jquery-rails
   pg
   rails (= 4.1.2)
-  rails_12factor
+  rails_12factor (= 0.0.2)
   sdoc (~> 0.4.0)
   sprockets
   turbolinks
