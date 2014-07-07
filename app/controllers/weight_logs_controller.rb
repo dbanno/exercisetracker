@@ -1,11 +1,11 @@
 class WeightLogsController < ApplicationController
   before_action :signed_in_user, only: [:create, :destroy]
   before_action :correct_user, only: :destroy
-
+  before_action :set_weight_log, only: [:show, :edit, :update, :destroy]
   # GET /weight_logs
   # GET /weight_logs.json
   def index
-    @weight_logs = WeightLog.where("user_id = ?", current_user)
+    @weight_logs = WeightLog.all
   end
 
   # GET /weight_logs/1
@@ -25,7 +25,7 @@ class WeightLogsController < ApplicationController
   # POST /weight_logs
   # POST /weight_logs.json
   def create
-    @weight_log = current_user.weight_logs.build(weight_log_params)
+    @weight_log = @exercise.weight_log.build(weight_log_params)
 
     respond_to do |format|
       if @weight_log.save
@@ -59,13 +59,14 @@ class WeightLogsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to weight_logs_url, notice: 'Weight log was successfully destroyed.' }
       format.json { head :no_content }
+	  
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_weight_log
-      @weight_log = Users.WeightLog.find(params[:id])
+      @weight_log =WeightLog.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -74,7 +75,7 @@ class WeightLogsController < ApplicationController
     end
 	
 	 def correct_user
-		@weight_log = current_user.weight_logs.find_by(id: params[:id])
+		@weight_log = WeightLog.find_by(id: params[:id])
       redirect_to root_url if @weight_log.nil?
     end
 end
