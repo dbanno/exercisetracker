@@ -5,7 +5,8 @@ class WeightLogsController < ApplicationController
   # GET /weight_logs
   # GET /weight_logs.json
   def index
-    @weight_logs = WeightLog.all
+	set_exercise
+    @weight_log = @exercise.weight_logs.all
   end
 
   # GET /weight_logs/1
@@ -15,7 +16,8 @@ class WeightLogsController < ApplicationController
 
   # GET /weight_logs/new
   def new
-    @weight_log = WeightLog.new
+	set_exercise
+    @weight_log = @exercise.weight_logs.new
   end
 
   # GET /weight_logs/1/edit
@@ -25,11 +27,12 @@ class WeightLogsController < ApplicationController
   # POST /weight_logs
   # POST /weight_logs.json
   def create
-    @weight_log = @exercise.weight_log.build(weight_log_params)
+	set_exercise
+    @weight_log = @exercise.weight_logs.build(weight_log_params)
 
     respond_to do |format|
       if @weight_log.save
-        format.html { redirect_to weight_logs_path, notice: 'Exercise log was successfully created.' }
+        format.html { redirect_to exercise_weight_logs_path, notice: 'Exercise log was successfully created.' }
         format.json { render :index, status: :created, location: @weight_log }
       else
         format.html { render :new }
@@ -41,9 +44,10 @@ class WeightLogsController < ApplicationController
   # PATCH/PUT /weight_logs/1
   # PATCH/PUT /weight_logs/1.json
   def update
+	@exercise = @weight_log.exercise_id
     respond_to do |format|
       if @weight_log.update(weight_log_params)
-        format.html { redirect_to @weight_log, notice: 'Weight log was successfully updated.' }
+        format.html { redirect_to exercise_weight_logs_path(@exercise), notice: 'Weight log was successfully updated.' }
         format.json { render :show, status: :ok, location: @weight_log }
       else
         format.html { render :edit }
@@ -55,9 +59,12 @@ class WeightLogsController < ApplicationController
   # DELETE /weight_logs/1
   # DELETE /weight_logs/1.json
   def destroy
+	
+	set_weight_log
+	@exercise = @weight_log.exercise_id
     @weight_log.destroy
     respond_to do |format|
-      format.html { redirect_to weight_logs_url, notice: 'Weight log was successfully destroyed.' }
+      format.html { redirect_to exercise_weight_logs_path(@exercise), notice: 'Weight log was successfully destroyed.' }
       format.json { head :no_content }
 	  
     end
@@ -66,8 +73,11 @@ class WeightLogsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_weight_log
-      @weight_log =WeightLog.find(params[:id])
+      @weight_log = WeightLog.find(params[:id])
     end
+	def set_exercise
+		@exercise = Exercise.find(params[:exercise_id])
+	end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def weight_log_params

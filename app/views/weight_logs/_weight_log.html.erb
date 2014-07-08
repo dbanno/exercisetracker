@@ -1,6 +1,7 @@
 <tr>
 	<td>  <%= weight_log.weight %> </td>
     <td>  <%= weight_log.reps %>  </td>
-  <td><%= link_to "delete", weight_log, method: :delete,data: { confirm: "You sure?" } %> </td>
+	<td> <%= link_to "update", edit_weight_log_path(weight_log) %> |
+					<%= link_to "delete", weight_log, method: :delete,data: { confirm: "You sure?" } %> </td>
 </li>
 </br>

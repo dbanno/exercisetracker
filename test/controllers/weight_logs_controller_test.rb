@@ -44,6 +44,6 @@ class WeightLogsControllerTest < ActionController::TestCase
       delete :destroy, id: @weight_log
     end
 
-    assert_redirected_to weight_logs_path
+    assert_redirected_to exercise_weight_logs_path
   end
 end

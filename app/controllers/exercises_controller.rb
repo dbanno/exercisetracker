@@ -6,17 +6,18 @@ class ExercisesController < ApplicationController
   # GET /exercises
   # GET /exercises.json
   def index
-    @exercises = Exercise.where("user_id = ?", current_user)
+    @exercise = current_user.exercises.all
   end
 
   # GET /exercises/1
   # GET /exercises/1.json
   def show
+	set_exercise
   end
 
   # GET /exercises/new
   def new
-    @exercise = Exercise.new
+    @exercise = current_user.exercises.new
   end
 
   # GET /exercises/1/edit
@@ -30,7 +31,7 @@ class ExercisesController < ApplicationController
 
     respond_to do |format|
       if @exercise.save
-        format.html { redirect_to @exercise}
+        format.html { redirect_to exercise_weight_logs_path(@exercise)}
         format.json { render :show, status: :created, location: @exercise }
       else
         format.html { render :new }
@@ -66,7 +67,7 @@ class ExercisesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_exercise
-      @exercise = current_user.exercises.find(params[:id])
+      @exercise = current_user.exercises.find_by(id: params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
