@@ -129,14 +129,14 @@ PLATFORMS
 DEPENDENCIES
   bcrypt-ruby (= 3.1.2)
   bootstrap-sass (~> 3.2.0)
-  bootstrap-will_paginate
+  bootstrap-will_paginate (= 0.0.9)
   faker
   jbuilder (~> 2.0)
   jquery-rails
   pg
   rails (= 4.1.2)
   rails_12factor (= 0.0.2)
-  sass-rails (>= 3.2)
+  sass-rails
   sdoc (~> 0.4.0)
   sprockets
   turbolinks

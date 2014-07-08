@@ -6,7 +6,7 @@ class WeightLogsController < ApplicationController
   # GET /weight_logs.json
   def index
 	set_exercise
-    @weight_log = @exercise.weight_logs.all
+    @weight_logs = @exercise.weight_logs.paginate(page: params[:page])
   end
 
   # GET /weight_logs/1

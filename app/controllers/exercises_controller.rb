@@ -6,7 +6,7 @@ class ExercisesController < ApplicationController
   # GET /exercises
   # GET /exercises.json
   def index
-    @exercises = current_user.exercises.paginate(page: params[:page], :per_page => 3)
+    @exercises = current_user.exercises.paginate(page: params[:page])
 	
   end
 

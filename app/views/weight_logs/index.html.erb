@@ -7,9 +7,12 @@
 		<td>Weight</td>
 		<td>Reps</td>
 		<td>Action</td>
-		<%= render @weight_log %>
+		<%= render @weight_logs %>
 
 </table>
 
-
-<%= link_to 'New Exercise Log', new_exercise_weight_log_path(@exercise) %>
+<center>
+<%= will_paginate %>
+</br>
+<%= link_to 'New Lift Log', new_exercise_weight_log_path(@exercise), class: "btn btn-default" %>
+</center>
