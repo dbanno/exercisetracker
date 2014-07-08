@@ -1,6 +1,4 @@
 <tr>
-	<td>  <%=link_to exercise.name,exercise_weight_logs_path(exercise) %> |  <% if current_user.admin? %>
-			<%= link_to "delete", exercise, method: :delete,data: { confirm: "You sure?" } %>
-  <% end %>			</td>
-</li>
-</br>
+	<td> <%=link_to exercise.name,exercise_weight_logs_path(exercise) %> </td>
+	<td>	<%= link_to "delete", exercise, method: :delete,data: { confirm: "You sure?" } %></td>
+</tr>

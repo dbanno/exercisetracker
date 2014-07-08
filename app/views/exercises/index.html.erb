@@ -5,9 +5,14 @@
 <table class="table">
 	<tr>
 		<td>Exercise</td>
-		<%= render @exercise %>
-
+		<td>Actions</td>
+		<%= render @exercises %>
+	</tr>
 </table>
 
 
-<%= link_to 'New Exercise', new_exercise_path %>
+<center>
+<%= will_paginate %>
+</center>
+</br>
+<%= link_to 'New Exercise', new_exercise_path, class: "btn btn-large btn-primary" %>
