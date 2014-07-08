@@ -44,8 +44,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'bootstrap-sass'
 gem 'sprockets'
 gem 'bcrypt-ruby', '3.1.2'
-gem 'will_paginate', "~> 3.0.4"
-gem 'bootstrap-will_paginate', '0.0.9'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 gem 'rails_12factor', '0.0.2'
 
