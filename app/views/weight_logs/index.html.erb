@@ -1,5 +1,5 @@
-<% provide(:title, 'All Workouts') %>
-<h1>All Workouts</h1>
+<% provide(:title, 'All Lifts') %>
+<h1>All Lifts for <%= @exercise.name %> </h1>
 
 
 <table class="table">
@@ -7,11 +7,9 @@
 		<td>Weight</td>
 		<td>Reps</td>
 		<td>Action</td>
-		<%= render @weight_logs %>
+		<%= render @weight_log %>
 
 </table>
 
 
-<%= link_to 'New Exercise Log', new_weight_log_path %>
-
-
+<%= link_to 'New Exercise Log', new_exercise_weight_log_path(@exercise) %>

@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
-	has_many :exercises
-	has_many :weight_logs, dependent: :destroy
+	has_many :exercises, dependent: :destroy
 	
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token
