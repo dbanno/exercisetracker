@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
 	set_user
+	#@weight_logs = WeightLog.joins(exercise: :user).sum("weight")
   end
 
   # GET /users/new
