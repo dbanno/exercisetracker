@@ -1,19 +1,20 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
 $grayLight: #999;
 $grayDarker: #222;
 $grayLighter: #eee;
+$gray: #555;
 /* universal */
 
 html {
   overflow-y: scroll;
 }
 
-body {
-}
+body { padding-top: 70px; }
 
 section {
   overflow: auto;
