@@ -70,10 +70,10 @@ p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
-
-.dropdown-backdrop{
-    position: static;
+.menu {
+    z-index: 1001;
 }
+
 /* header */
 
 #logo {
