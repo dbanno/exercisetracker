@@ -11,9 +11,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'sprockets'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'will_paginate'
-gem 'bootstrap-sass', '~> 3.2.0'
+#gem 'bootstrap-sass', '~> 3.2.0'
 gem 'sass-rails'
-gem 'bootstrap-will_paginate' , '0.0.9'
+#gem 'bootstrap-will_paginate' , '0.0.9'
 
 #gem 'autoprefixer-rails'
 
