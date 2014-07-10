@@ -12,6 +12,7 @@ class WeightLogsController < ApplicationController
   # GET /weight_logs/1
   # GET /weight_logs/1.json
   def show
+	@Srcexercise = @weight_log.exercise_id
   end
 
   # GET /weight_logs/new
@@ -22,6 +23,7 @@ class WeightLogsController < ApplicationController
 
   # GET /weight_logs/1/edit
   def edit
+	@Srcexercise = @weight_log.exercise_id
   end
 
   # POST /weight_logs

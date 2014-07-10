@@ -3,16 +3,23 @@
 
 
 <table class="table">
+
 	<tr>
-		<td>Weight</td>
-		<td>Reps</td>
-		<td>Action</td>
+		<td><strong>Weight</td>
+		<td><strong>Reps</td>
+		<td><strong>Estimated </br>1 Rep Max </td>
+		<td><strong>Date Lifted</td>
+		<td><strong>Action</td>
+	</tr>
+	
 		<%= render @weight_logs %>
 
 </table>
 
 <center>
-<%= will_paginate %>
+<%= will_paginate %></center>
 </br>
-<%= link_to 'New Lift Log', new_exercise_weight_log_path(@exercise), class: "btn btn-default" %>
+
+<center>    
+<%= link_to 'New Log', new_exercise_weight_log_path(@exercise), class: "btn btn-default" %>
 </center>
