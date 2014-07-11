@@ -19,8 +19,8 @@
 <p>We use <a href="https://en.gravatar.com/" target="blank">Gravatar</a> for profile images.
 </p>
 </br>
-<% if current_user?(@user) %>
-	<%= link_to "Edit Profile", edit_user_path(current_user) %>
+<% if current_user == (@user) %>
+	<%= link_to "Edit Profile", edit_user_registration_path%>
 	</br>
 	</br>
 <% end %>

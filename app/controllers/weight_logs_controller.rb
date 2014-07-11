@@ -1,5 +1,6 @@
 class WeightLogsController < ApplicationController
-  before_action :signed_in_user, only: [:create, :destroy]
+  before_action :authenticate_user!
+  #before_action :signed_in_user, only: [:create, :destroy]
   before_action :correct_user, only: :destroy
   before_action :set_weight_log, only: [:show, :edit, :update, :destroy]
   # GET /weight_logs
