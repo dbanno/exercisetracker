@@ -74,7 +74,7 @@ class ExercisesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exercise_params
-      params.require(:exercise).permit(:name)
+      params.require(:exercise).permit(:name, :notes)
     end
 	def correct_user
 		@exercise = current_user.exercises.find_by(id: params[:id])

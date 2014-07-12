@@ -1,6 +1,16 @@
 <% provide(:title, 'All Lifts') %>
+
+<script>
+	$(document).ready(function(){
+		$('textarea').autosize();   
+	});
+</script>
+
 <h1>All Lifts for <%= @exercise.name %> </h1>
- 
+   <strong>Notes:</strong>
+	<%= text_area :exercise , :notes, disabled:'disabled'%>
+	
+	</br>
 <table class="table">
 
 	<tr>
