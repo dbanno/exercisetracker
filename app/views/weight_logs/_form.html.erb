@@ -13,11 +13,15 @@
 
   <div class="field">
     <%= f.label :weight %><br>
-    <%= f.number_field :weight, options={min:0, step:0.5}%>
+    <%= f.number_field :weight, options={min:0, step:0.5, autocomplete: "off" }%>
   </div>
   <div class="field">
     <%= f.label :reps %><br>
-    <%= f.number_field :reps, options={min:0} %>
+    <%= f.number_field :reps, options={min:0, autocomplete: "off" } %>
+	
+	<div class="field">
+		<%= f.label :notes %> <br>
+		<%= f.text_area :notes, size: "10x2"%>
   <div class="actions">
 	</br></br>
     <%=  f.submit "Save", class: "btn btn-default"%>

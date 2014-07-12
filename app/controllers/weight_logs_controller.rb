@@ -84,7 +84,7 @@ class WeightLogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def weight_log_params
-      params.require(:weight_log).permit(:weight, :reps)
+      params.require(:weight_log).permit(:weight, :reps, :notes)
     end
 	
 	 def correct_user
