@@ -2,7 +2,7 @@
 	<td>  <%= weight_log.weight %> </td>
     <td>  <%= weight_log.reps %>  </td>
 	<td>  <%= (weight_log.weight / (1.0278 - (0.0278 * weight_log.reps))).round%> </td>
-	<td>  <%=(weight_log.created_at.localtime).strftime("%d/%m/%Y %I:%M %p")%></td>
+	<td>  <%=(weight_log.created_at.in_time_zone(current_user.timezone)).strftime("%m/%d/%Y %I:%M %p")%></td>
 	<td> <%= link_to "update", edit_weight_log_path(weight_log) %> |
 					<%= link_to "delete", weight_log, method: :delete,data: { confirm: "You sure?" } %> </td>
 </tr>
