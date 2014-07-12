@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 	has_many :exercises, dependent: :destroy
+	has_many :workouts, dependent: :destroy
 	
 	before_save { self.email = email.downcase }
 
