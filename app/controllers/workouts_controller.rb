@@ -86,7 +86,7 @@ class WorkoutsController < ApplicationController
     end
 	
 	def correct_user
-		@workout = current_user.exercises.find_by(id: params[:id])
+		@workout = current_user.workouts.find_by(id: params[:id])
       redirect_to root_url if @workout.nil?
     end
 end
