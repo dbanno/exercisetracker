@@ -15,6 +15,7 @@ gem 'will_paginate'
 gem 'sass-rails'
 gem 'bootstrap-will_paginate' , '0.0.9'
 gem 'bootstrap-sass', '~> 3.2.0'
+gem 'formtastic'
 #gem 'autoprefixer-rails'
 
 group :development, :test do
