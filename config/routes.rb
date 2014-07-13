@@ -14,6 +14,10 @@ Rails.application.routes.draw do
 	resources :weight_logs, shallow: true
   end
   
+  resources :workouts do
+	resources :exercises, only: [:show]
+  end
+  
   devise_scope :user do
 	get "signin", to: "devise/sessions#new"
 	get "signup", to: "devise/registrations#new"

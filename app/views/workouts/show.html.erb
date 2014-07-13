@@ -1,8 +1,11 @@
+<% provide(:title, 'Workout') %>
+<h1>Workout</h1>
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @workout.user_id %>
+  <strong>Name:</strong>
+  <%= @workout.name %>
 </p>
 
 <p>
@@ -10,5 +13,26 @@
   <%= @workout.description %>
 </p>
 
-<%= link_to 'Edit', edit_workout_path(@workout) %> |
-<%= link_to 'Back', workouts_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Exercise</th>
+	  <th>Actions </th>
+  </thead>
+    <tbody>
+	<% @workout.exercises.each do |exercise| %>
+		<tr>
+			<td>
+				<%= link_to exercise.name, exercise_weight_logs_path(exercise)%>
+			</td>
+			<td>
+				Remove
+			</td>
+		</tr>
+		</tbody>
+	<% end %>
+</table>
+
+</br>
+<%= link_to 'Edit Workout', edit_workout_path(@workout) %> |
+<%= link_to 'All Workouts', workouts_path %>

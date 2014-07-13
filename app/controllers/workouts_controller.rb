@@ -13,20 +13,25 @@ class WorkoutsController < ApplicationController
   def show
   end
 
+  def add_exercise
+  end
   # GET /workouts/new
   def new
     @workout = current_user.workouts.new
+	@exercises = current_user.exercises.all
   end
 
   # GET /workouts/1/edit
   def edit
+	#@exercises = @workout.exercises.all
+	@exercises = current_user.exercises.all
   end
 
   # POST /workouts
   # POST /workouts.json
   def create
     @workout = current_user.workouts.build(workout_params)
-
+#	@exercises = Exercises.find_by_name(
     respond_to do |format|
       if @workout.save
         format.html { redirect_to @workout, notice: 'Workout was successfully created.' }
@@ -41,15 +46,21 @@ class WorkoutsController < ApplicationController
   # PATCH/PUT /workouts/1
   # PATCH/PUT /workouts/1.json
   def update
-    respond_to do |format|
-      if @workout.update(workout_params)
-        format.html { redirect_to @workout, notice: 'Workout was successfully updated.' }
-        format.json { render :show, status: :ok, location: @workout }
-      else
-        format.html { render :edit }
-        format.json { render json: @workout.errors, status: :unprocessable_entity }
-      end
-    end
+
+	if @workout.update_attributes(workout_params)
+		@workout.exercises.build
+		redirect_to @workout
+	end
+ #   respond_to do |format|
+ #
+ #     if @workout.update(workout_params)
+ #       format.html { redirect_to @workout, notice: 'Workout was successfully updated.' }
+ #       format.json { render :show, status: :ok, location: @workout }
+ #     else
+ #       format.html { render :edit }
+ #       format.json { render json: @workout.errors, status: :unprocessable_entity }
+ #     end
+ #   end
   end
 
   # DELETE /workouts/1
@@ -70,7 +81,8 @@ class WorkoutsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def workout_params
-      params.require(:workout).permit(:user_id, :description, :name)
+      params.require(:workout).permit(:user_id, :description, :name,
+						:workout_exercise => [:exercise_id => []])
     end
 	
 	def correct_user

@@ -1,0 +1,7 @@
+<tr>
+	<td> <%=link_to exercise.name,exercise_weight_logs_path(@exercises) %> </td>
+	<td><%= link_to "update", edit_exercise_path(@exercises) %> |	
+			<%= link_to "delete", :exercises, method: :delete,data: { confirm: "Are you sure? 
+																					This will also delete ALL 
+																					logs for this exercise!" } %></td>
+</tr>

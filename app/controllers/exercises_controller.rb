@@ -7,7 +7,14 @@ class ExercisesController < ApplicationController
   # GET /exercises
   # GET /exercises.json
   def index
-    @exercises = current_user.exercises.paginate(page: params[:page])
+	if (params.has_key?(:workout_id))
+		set_workout
+		@exercises = @workout.exercises.paginate(page: params[:page])
+			
+		#@exercises = current_user.exercises.find(params[:workout_exercises][:workout_id])
+	else
+		@exercises = current_user.exercises.paginate(page: params[:page])
+	end	
 	
   end
 
@@ -71,7 +78,9 @@ class ExercisesController < ApplicationController
     def set_exercise
       @exercise = current_user.exercises.find_by(id: params[:id])
     end
-
+	def set_workout
+		@workout = Workout.find(params[:workout_id])
+	end
     # Never trust parameters from the scary internet, only allow the white list through.
     def exercise_params
       params.require(:exercise).permit(:name, :notes)

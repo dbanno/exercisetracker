@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140712040355) do
+ActiveRecord::Schema.define(version: 20140712045144) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,16 @@ ActiveRecord::Schema.define(version: 20140712040355) do
     t.text     "notes"
   end
 
+  create_table "workout_exercises", force: true do |t|
+    t.integer  "workout_id"
+    t.integer  "exercise_id"
+    t.integer  "ExerciseOrder"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "workout_exercises", ["workout_id", "exercise_id", "ExerciseOrder"], name: "index_workouts_unique", unique: true, using: :btree
+
   create_table "workouts", force: true do |t|
     t.integer  "user_id"
     t.text     "description"
@@ -68,15 +78,5 @@ ActiveRecord::Schema.define(version: 20140712040355) do
   end
 
   add_index "workouts", ["name", "user_id"], name: "index_workouts_on_name_and_user_id", unique: true, using: :btree
-
-  create_table "workouts_to_exercises", force: true do |t|
-    t.integer  "workout_id"
-    t.integer  "exercise_id"
-    t.integer  "ExerciseOrder"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "workouts_to_exercises", ["workout_id", "exercise_id", "ExerciseOrder"], name: "index_workouts_unique", unique: true, using: :btree
 
 end
