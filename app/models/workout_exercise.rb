@@ -6,5 +6,5 @@ class WorkoutExercise < ActiveRecord::Base
 	#default_scope -> { order('ExerciseOrder ASC') }
 	validates :exercise_id, presence: true
 	validates :workout_id, presence: true
-	validates :ExerciseOrder, presence: true
+	#validates :ExerciseOrder, presence: true
 end

@@ -32,6 +32,12 @@ class WorkoutsController < ApplicationController
     @workout = current_user.workouts.build(workout_params)
     respond_to do |format|
       if @workout.save
+			params[:workout].each do |key,value|
+				if key == 'exercise_ids'
+					@exercises = Exercise.find(value.reject!{|a| a==""})
+					@workout.exercises << @exercises		
+				end
+			end
         format.html { redirect_to @workout, notice: 'Workout was successfully created.' }
         format.json { render :show, status: :created, location: @workout }
       else
@@ -49,7 +55,13 @@ class WorkoutsController < ApplicationController
    respond_to do |format|
 	
      if @workout.update(workout_params)
-       format.html { redirect_to @workout, notice: 'Workout was successfully updated.' }
+			params[:workout].each do |key,value|
+				if key == 'exercise_ids'
+					@exercises = Exercise.find(value.reject!{|a| a==""})
+					@workout.exercises << @exercises		
+				end
+			end
+	   format.html { redirect_to @workout, notice: 'Workout was successfully updated.' }
        format.json { render :show, status: :ok, location: @workout }
      else
        format.html { render :edit }

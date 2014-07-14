@@ -6,8 +6,8 @@ class Workout < ActiveRecord::Base
 	belongs_to :user
 	accepts_nested_attributes_for :workout_exercises
 
-	validates :name, presence: true, length: { maximum: 100 }
-	
+	validates :name, presence: true, length: { maximum: 100 },
+				uniqueness: { case_sensitive: false }
 	
 
 end
