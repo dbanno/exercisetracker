@@ -4,7 +4,11 @@
   <div class="row">
     <aside class="span4">
       <section>
-        Start tracking your exercises!
+	  <h1>Welcome to the Simple Exercise Tracker</h1>
+	  <br>
+        Create and start tracking your <%= link_to "Exercises!", exercises_path %>
+		<br><br>
+		This site is a work in progress so if you have any suggestions or find any bugs, please log them <%= link_to "here", "https://github.com/dbanno/exercisetracker/issues?state=open", :target => "_blank" %>
       </section>
     </aside>
   </div>
@@ -12,10 +16,63 @@
 	<div class="center jumbotron">
 		<h1> Simple Exercise Tracker </h1>
 
-		<h2>
-			This is the home page for Simple Exercise Tracker!
-		</h2>
+	<h2>Why use Simple Exercise Tracker? </h2>
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          Mobile Phone Compatible
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in">
+      <div class="panel-body">
+        This website has a very simple, clean design which looks great on cell phones. You have no apps 
+		to install and don't have to worry about losing you data when you upgrade your phone.
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+          One Rep Max Calculation
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+			This site will calculate your estimated One Rep Max for all of your weight exercises automatically 
+			for you! This is a great way to see if you're getting stronger over time. This calculation will take 
+			the weight and reps lifted and determine how much weight you could lift for just 1 rep.
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+          Weight Breakdown per lift
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">
+			If you've logged your weights for any period of time, you'll know it's a pain to calculate how 
+			much weight you need to put on each side of the bar. With Simple Exercise Tracker, the website
+			will do all of this work for you. When you create an exercise you can specify the base weight. Lets
+			use Bench Press for an example. The base weight for the Bench Press is 45 lbs, which is the barbell.
+			Now, when you log a weight into the site, it will calculate how much weight you had on each side of 
+			the bar. Lets say you just Bench Pressed 200 lbs. You would log that in the site and it will convert it
+			into an easy to use number for next time, 45,25,5,2.5 on each side.
+      </div>
+    </div>
+  </div>
+</div>
 
+<h2>Create an account and start logging your exercises!</h2>
+<br>
 		<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
 	</div>
 <%end%>
