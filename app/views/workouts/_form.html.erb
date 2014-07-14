@@ -7,9 +7,13 @@
 <%= semantic_form_for(@workout) do |f| %>
   <%= f.inputs do %>
 	<%= f.input :name %>
-	<%= f.text_area :description %>
+	<%= f.input :description,  :input_html => {:class => 'autosize', :rows => 3, :cols => 180}%>
 	<%= f.input :exercises, :as => :check_boxes, :collection => current_user.exercises.all %>
+
 	<% end%>
 
-  <%= f.actions %>
+	<%= f.actions do %>
+		<%= f.action :submit, :as => :button, :button_html =>{:class => "btn btn-default" }%>
+		<%= f.action :cancel, :as => :link, :label => "Cancel" %>
+	<% end %>
 <% end %>

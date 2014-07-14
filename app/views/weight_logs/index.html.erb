@@ -33,5 +33,8 @@
 <center>    
 <%= link_to 'New Log', new_exercise_weight_log_path(@exercise), class: "btn btn-default" %>
 </center>
-
-<%= link_to 'Back to Exercises', exercises_path %>
+<% if $workout %>
+	<%= link_to 'Back to Workout', workout_path($workout) %>
+<% else %>
+	<%= link_to 'Back to Exercises', exercises_path %>
+<% end %>
