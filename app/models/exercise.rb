@@ -7,7 +7,7 @@ class Exercise < ActiveRecord::Base
 	has_many :workouts, :through => :workout_exercises
 	
 	validates :name, presence: true, length: { maximum: 100 }
-	
+	default_scope -> { order('name ASC') }
 	
 	def self.from_workout_exercises_by(workout)
 		exercise_ids = workout.exercises

@@ -1,5 +1,9 @@
-<p id="notice"><%= notice %></p>
 
+<script>
+	$(document).ready(function(){
+		$('textarea').autosize();   
+	});
+</script>
 <p>
   <strong>Weight:</strong>
   <%= @weight_log.weight %>
@@ -9,7 +13,11 @@
   <strong>Reps:</strong>
   <%= @weight_log.reps %>
 </p>
-
+<p>
+	<strong>Notes:</strong>
+	<%= text_area :exercise , :notes, disabled:'disabled'%>
+<%= link_to "Delete", @weight_log, method: :delete,data: { confirm: "You sure?" } %>
+<br><br>
 
 <%= link_to 'Edit', edit_weight_log_path(@weight_log) %> |
 <%= link_to 'Back', exercise_weight_logs_path(@Srcexercise) %>

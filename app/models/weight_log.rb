@@ -4,4 +4,38 @@ class WeightLog < ActiveRecord::Base
 	validates :weight, presence: true
 	validates :reps, presence: true
 
+	def oneRepMax
+		(weight / (1.0278 - (0.0278 * reps))).round
+	end
+	
+	def weightBreakout
+		@exercise = Exercise.find(exercise_id)
+		weightLeft = (weight - @exercise.base_weight) / 2
+		
+		weights = ''
+		while weightLeft != 0 do
+		
+			if weightLeft >= 45
+				weights += '45'
+				weightLeft -= 45
+			elsif weightLeft >= 25
+				weights += '25'
+				weightLeft -= 25
+			elsif weightLeft >= 10
+				weights += '10'
+				weightLeft -= 10
+			elsif weightLeft >= 5
+				weights += '5'
+				weightLeft -= 5
+			elsif $weightLeft = 2.5
+				weights += '2.5'
+				weightLeft -= 2.5
+			end
+			if weightLeft != 0
+				weights += ','
+			end
+		end
+		return weights
+
+	end
 end

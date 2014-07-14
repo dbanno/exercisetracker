@@ -1,4 +1,4 @@
-<% provide(:title, 'All Lifts') %>
+<% provide(:title, 'All Logs') %>
 
 <script>
 	$(document).ready(function(){
@@ -6,7 +6,7 @@
 	});
 </script>
 
-<h1>All Lifts for <%= @exercise.name %> </h1>
+<h1>All logs for <%= @exercise.name %> </h1>
    <strong>Notes:</strong>
 	<%= text_area :exercise , :notes, disabled:'disabled'%>
 	
@@ -17,6 +17,7 @@
 		<td><strong>Weight</td>
 		<td><strong>Reps</td>
 		<td><strong>Estimated </br>1 Rep Max </td>
+		<td><strong>Weight<br> per side </td>
 		<td><strong>Date Lifted</td>
 		<td><strong>Action</td>
 	</tr>
