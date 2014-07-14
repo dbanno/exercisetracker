@@ -6,8 +6,8 @@ class Exercise < ActiveRecord::Base
 	has_many :workout_exercises
 	has_many :workouts, :through => :workout_exercises
 	
-	validates :name, presence: true, length: { maximum: 100 },
-		uniqueness: { case_sensitive: false }
+	validates :name, presence: true, length: { maximum: 100 }
+	validates_uniqueness_of :name, :scope => :user_id, :case_sensitive => false
 	default_scope -> { order('name ASC') }
 	
 	def self.from_workout_exercises_by(workout)
