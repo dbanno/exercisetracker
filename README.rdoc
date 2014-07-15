@@ -1,4 +1,3 @@
 == README
 
-read it all
-making it even better
+Simple Exercise Tracker a great free tool to track your workouts!
