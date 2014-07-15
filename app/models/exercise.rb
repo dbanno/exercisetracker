@@ -10,9 +10,4 @@ class Exercise < ActiveRecord::Base
 	validates_uniqueness_of :name, :scope => :user_id, :case_sensitive => false
 	default_scope -> { order('name ASC') }
 	
-	def self.from_workout_exercises_by(workout)
-		exercise_ids = workout.exercises
-				where("workout_id = ?", workout)
-
-	end
 end

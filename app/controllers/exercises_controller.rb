@@ -2,7 +2,7 @@ class ExercisesController < ApplicationController
   before_action :authenticate_user!
   #before_action :signed_in_user, only: [:index, :edit, :update, :destroy]
   before_action :set_exercise, only: [:show, :edit, :update, :destroy]
-  before_action :correct_user, only: :destroy
+  before_action :correct_user, only: [:show, :edit, :update, :destroy]
   
   # GET /exercises
   # GET /exercises.json
@@ -87,6 +87,6 @@ class ExercisesController < ApplicationController
     end
 	def correct_user
 		@exercise = current_user.exercises.find_by(id: params[:id])
-      redirect_to root_url if @exercise.nil?
+      redirect_to exercises_path if @exercise.nil?
     end
 end
