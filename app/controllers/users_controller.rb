@@ -16,6 +16,15 @@ class UsersController < ApplicationController
 	#@weight_logs = WeightLog.joins(exercise: :user).sum("weight")
   end
   
+  def destroy
+	set_user
+    @user.destroy
+    respond_to do |format|
+      format.html { redirect_to users_url, notice: 'User was successfully deleted.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
 		# Use callbacks to share common setup or constraints between actions.
 		def set_user
@@ -65,15 +74,7 @@ class UsersController < ApplicationController
 #
 #  # DELETE /users/1
 #  # DELETE /users/1.json
-#  def destroy
-#	set_user
-#    @user.destroy
-#    respond_to do |format|
-#      format.html { redirect_to users_url, notice: 'User was successfully deleted.' }
-#      format.json { head :no_content }
-#    end
-#  end
-#
+
 
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -14,8 +14,18 @@
   <%= @weight_log.reps %>
 </p>
 <p>
+  <strong>Estimated One Rep Max: </strong>
+  <%= @weight_log.oneRepMax %>
+</p>
+<% if @weight_log.hasBaseWeight? %>
+	<p>
+	  <strong>Weight per side: </strong>
+	  <%= @weight_log.weightBreakout %>
+	</p>
+<% end %>
+<p>
 	<strong>Notes:</strong>
-	<%= text_area :exercise , :notes, disabled:'disabled'%>
+	<%= text_area :weight_log, :notes , disabled:'disabled'%>
 <%= link_to "Delete", @weight_log, method: :delete,data: { confirm: "You sure?" } %>
 <br><br>
 

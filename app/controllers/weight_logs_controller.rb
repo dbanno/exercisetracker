@@ -1,8 +1,9 @@
 class WeightLogsController < ApplicationController
   before_action :authenticate_user!
   #before_action :signed_in_user, only: [:create, :destroy]
-  before_action :correct_user, only: :destroy
+  before_action :correct_user, only: [:show, :edit, :update, :destroy]
   before_action :set_weight_log, only: [:show, :edit, :update, :destroy]
+  before_action :correct_exercise_user, only: [:index]
   # GET /weight_logs
   # GET /weight_logs.json
   def index
@@ -89,6 +90,10 @@ class WeightLogsController < ApplicationController
 	
 	 def correct_user
 		@weight_log = WeightLog.find_by(id: params[:id])
-      redirect_to root_url if @weight_log.nil?
+      redirect_to exercises_path if @weight_log.nil?
+    end
+	 def correct_exercise_user
+		@exercise = current_user.exercises.find_by(id: params[:exercise_id])
+      redirect_to exercises_path if @exercise.nil?
     end
 end

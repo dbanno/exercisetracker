@@ -1,11 +1,11 @@
 class WorkoutsController < ApplicationController
   before_action :set_workout, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  before_action :correct_user, only: :destroy
+  before_action :correct_user, only: [:show, :edit, :update, :destroy]
   # GET /workouts
   # GET /workouts.json
   def index
-    @workouts = Workout.all
+    @workouts = current_user.workouts.all
   end
 
   # GET /workouts/1
@@ -95,6 +95,6 @@ class WorkoutsController < ApplicationController
 	
 	def correct_user
 		@workout = current_user.workouts.find_by(id: params[:id])
-      redirect_to root_url if @workout.nil?
+      redirect_to workouts_path if @workout.nil?
     end
 end
