@@ -15,12 +15,16 @@
   <thead>
     <tr>
       <th>Exercises</th>
+	  <th> </th>
   </thead>
     <tbody>
 	<% @workout.exercises.each do |exercise| %>
 		<tr>
 			<td>
 				<%= link_to exercise.name, exercise_weight_logs_path(exercise)%>
+			</td>
+			<td>
+				Sets performed today: <%= exercise.liftsToday.to_s %>
 			</td>
 		</tr>
 		</tbody>
