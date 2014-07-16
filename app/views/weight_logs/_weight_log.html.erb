@@ -3,7 +3,7 @@
     <td>  <%= weight_log.reps %>  </td>
 	<td>  <%= weight_log.oneRepMax %> </td>
 	<td> <%= weight_log.weightBreakout %> </td>
-	<td>  <%= format_date(weight_log.created_at) %></td>
+	<td>  <%= format_date(weight_log.created_at, current_user.timezone) %></td>
 	<td> <%= link_to "Details", weight_log_path(weight_log) %> </td>
 </tr>
 
