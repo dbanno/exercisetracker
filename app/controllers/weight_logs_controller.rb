@@ -96,4 +96,6 @@ class WeightLogsController < ApplicationController
 		@exercise = current_user.exercises.find_by(id: params[:exercise_id])
       redirect_to exercises_path if @exercise.nil?
     end
+	
+
 end
