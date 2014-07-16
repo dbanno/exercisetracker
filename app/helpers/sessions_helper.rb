@@ -12,7 +12,10 @@ module SessionsHelper
   def current_location_path(default)
 		session[:return_to] || default
   end
-
+  
+	def format_date(date, timezone)
+		(date.in_time_zone(timezone)).strftime("%m/%d/%Y %I:%M %p")
+	end
 #  def sign_in(user)
 #    remember_token = User.new_remember_token
 #    cookies.permanent[:remember_token] = remember_token

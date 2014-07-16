@@ -24,7 +24,7 @@
 				<%= link_to exercise.name, exercise_weight_logs_path(exercise)%>
 			</td>
 			<td>
-				Sets performed today: <%= exercise.liftsToday.to_s %>
+				Sets performed today: <%= exercise.liftsToday(current_user.timezone).to_s %>
 			</td>
 		</tr>
 		</tbody>

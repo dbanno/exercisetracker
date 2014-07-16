@@ -1,5 +1,5 @@
 module ApplicationHelper
-
+	include SessionsHelper
 
 	def full_title(page_title)
 		base_title = "Simple Exercise Tracker"
@@ -10,7 +10,5 @@ module ApplicationHelper
 		end
 	end
 	
-	def format_date(date)
-		(date.in_time_zone(current_user.timezone)).strftime("%m/%d/%Y %I:%M %p")
-	end
+
 end
