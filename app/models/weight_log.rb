@@ -16,13 +16,15 @@ class WeightLog < ActiveRecord::Base
 	def weightBreakout
 		@exercise = Exercise.find(exercise_id)
 		if @exercise.base_weight?
-
-			weightLeft = (weight - @exercise.base_weight) / 2
-			
-			if (weight % 2.5) != 0
+		
+			if (weight) <= @exercise.base_weight || (weight % 2.5) != 0
 				return
 			end
+		
+		
+			weightLeft = (weight - @exercise.base_weight) / 2
 			
+
 			weights = ''
 	
 			while weightLeft != 0 do
