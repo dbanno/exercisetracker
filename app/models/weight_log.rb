@@ -19,7 +19,11 @@ class WeightLog < ActiveRecord::Base
 
 			weightLeft = (weight - @exercise.base_weight) / 2
 			
-			if (weight % 2.5) != 0
+			if (weight) <= @exercise.base_weight
+				return
+			
+			
+			elsif (weight % 2.5) != 0
 				return
 			end
 			
