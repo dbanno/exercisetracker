@@ -17,7 +17,7 @@ class WeightLog < ActiveRecord::Base
 		@exercise = Exercise.find(exercise_id)
 		if @exercise.base_weight?
 		
-			if (weight) <= @exercise.base_weight || (weight % 2.5) != 0
+			if (weight) <= @exercise.base_weight || ((weight - @exercise.base_weight) % 2.5) != 0
 				return
 			end
 		
