@@ -32,6 +32,9 @@ class WeightLog < ActiveRecord::Base
 				if weightLeft >= 45
 					weights += '45'
 					weightLeft -= 45
+				elsif weightLeft >= 35
+					weights += '35'
+					weightLeft -= 35
 				elsif weightLeft >= 25
 					weights += '25'
 					weightLeft -= 25

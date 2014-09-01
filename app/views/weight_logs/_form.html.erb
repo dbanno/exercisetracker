@@ -2,7 +2,38 @@
 	$(document).ready(function(){
 		$('textarea').autosize();   
 	});
+	
+	function CalcTotalWeight(weight)
+	{
+		var baseweight = document.getElementById('baseweight');
+		if ($('input[name="inputType"]:checked').val() == "add")
+		{
+			var total = document.getElementById('weight_log_weight');
+			if(total.value == '')
+				total.value = parseFloat(baseweight.value)
+			total.value = parseFloat(total.value) + (parseFloat(weight) * 2);
+		}
+		else
+		{
+			var total = document.getElementById('weight_log_weight');
+			
+			if(total.value == '')
+				total.value = parseFloat(baseweight.value)
+				
+			if(total.value > 0)
+				total.value = parseFloat(total.value) - (parseFloat(weight) * 2);
+			if(parseFloat(total.value) < parseFloat(baseweight.value))
+				total.value = baseweight.value	
+		}	
+
+	}
+
 </script>
+
+<H1> Log: <%= @exercise.name %> </H1>
+
+
+
 <%= form_for([@exercise,@weight_log]) do |f| %>
   <% if @weight_log.errors.any? %>
     <div id="error_explanation">
@@ -15,11 +46,43 @@
       </ul>
     </div>
   <% end %>
+<% if @exercise.base_weight? %>
+	<H2> Base Weight: <%= @exercise.base_weight %> </H2>
+	Select weight on each side to calculate total weight, or enter total weight by hand.
+	<table>
+		<tr>
+		<td>	
+			<div class="radio">
+		  <label>
+			<input type="radio" name="inputType" id="add" value="add" checked>
+			Add
+			  </label>
+			  </br>
+			  <label>
+				<input type="radio" name="inputType" id="remove" value="remove">
+				Remove
+			  </label>
+			</div>
+		</td>
+		<td>
+			<input class="btn" type="button" onclick="CalcTotalWeight(45);" value="45"/>
+			<input class="btn" type="button" onclick="CalcTotalWeight(35);" value="35"/>
+			<input class="btn" type="button" onclick="CalcTotalWeight(25);" value="25"/>
+			<input class="btn" type="button" onclick="CalcTotalWeight(10);" value="10"/>
+			<input class="btn" type="button" onclick="CalcTotalWeight(5);" value="5"/>
+			<input class="btn" type="button" onclick="CalcTotalWeight(2.5);" value="2.5"/>
+		</td>
+		</tr>
 
+	</table>
+	<input type="hidden" id="baseweight" value="<%=@exercise.base_weight%>" />
+<% end %>
   <div class="field">
-    <%= f.label :weight %><br>
-    <%= f.number_field :weight, options={min:0, step:0.5, autocomplete: "off" }%>
+    <strong>Total Weight</strong><br>
+    <%= f.number_field :weight, options={min:0, step:0.5, autocomplete: "off", value:@exercise.base_weight }%>
   </div>
+  
+
   <div class="field">
     <%= f.label :reps %><br>
     <%= f.number_field :reps, options={min:0, autocomplete: "off" } %>
