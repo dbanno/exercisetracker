@@ -6,10 +6,16 @@
       <section>
 	  <h1>Welcome to the Simple Exercise Tracker</h1>
 	  <br>
-        Create and start tracking your <%= link_to "Exercises!", exercises_path %>
+        First, create an <%= link_to "Exercise!", exercises_path %>
+		</br>
+		Then, create a <%= link_to "workout" , workouts_path %> to group up your exercises.
+		</br>
+		Finally - Start working out!
+
 		<br><br>
 		This site is a work in progress so if you have any suggestions or find any bugs, please log them <%= link_to "here", "https://github.com/dbanno/exercisetracker/issues?state=open", :target => "_blank" %>
-      </section>
+		or send me an <%= link_to "email! (dbanno@gmail.com)", "mailto:dbanno@gmail.com" %>
+	  </section>
     </aside>
   </div>
 <% else %>
