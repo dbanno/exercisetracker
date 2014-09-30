@@ -44,7 +44,7 @@ class WeightLog < ActiveRecord::Base
 				elsif weightLeft >= 5
 					weights += '5'
 					weightLeft -= 5
-				elsif $weightLeft = 2.5
+				elsif $weightLeft == 2.5
 					weights += '2.5'
 					weightLeft -= 2.5
 				end

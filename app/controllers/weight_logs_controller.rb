@@ -48,7 +48,7 @@ class WeightLogsController < ApplicationController
   # PATCH/PUT /weight_logs/1
   # PATCH/PUT /weight_logs/1.json
   def update
-	@exercise = @weight_log.exercise_id
+	@exercise = @weight_log.exercise
     respond_to do |format|
       if @weight_log.update(weight_log_params)
         format.html { redirect_to exercise_weight_logs_path(@exercise), notice: 'Weight log was successfully updated.' }
