@@ -26,6 +26,7 @@ class WeightLog < ActiveRecord::Base
 			
 
 			weights = ''
+			count = 0
 	
 			while weightLeft != 0 do
 				
@@ -44,13 +45,14 @@ class WeightLog < ActiveRecord::Base
 				elsif weightLeft >= 5
 					weights += '5'
 					weightLeft -= 5
-				elsif $weightLeft == 2.5
+				elsif $weightLeft = 2.5 #Needs to be ==, but i can't get this to work.
 					weights += '2.5'
 					weightLeft -= 2.5
 				end
 				if weightLeft != 0
 					weights += ','
 				end
+
 			end
 			return weights
 		end
